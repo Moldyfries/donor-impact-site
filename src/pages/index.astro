@@ -1,0 +1,339 @@
+---
+// The whole page is built from impact-notes.txt. Every number below is copied from that file.
+// If you want to change a figure, change it in impact-notes.txt first, then here, so the two
+// never drift apart. Nothing on this page may state a number that is not in those notes.
+
+const stats = [
+  {
+    figure: '$9,738.25',
+    label: 'given this fall',
+    note: 'The exact figure from the finance export, not a rounded one.',
+  },
+  {
+    figure: '12 gifts',
+    label: 'five from first-time givers',
+    note: 'Five people gave here for the very first time this quarter.',
+  },
+  {
+    figure: '$3,686.00',
+    label: 'to the Roof Fund',
+    note: 'Enough to do the northeast corner properly. Not yet enough for the whole roof.',
+  },
+  {
+    figure: '$3,871.80',
+    label: 'to the Year-End Appeal',
+    note: 'The push that carries us through the coldest part of the year.',
+  },
+  {
+    figure: '$1,195.45',
+    label: 'to the Emergency Rent Fund',
+    note: 'It covered the gap for a family in November who came to the office before they fell behind.',
+  },
+  {
+    figure: '$985.00',
+    label: 'from monthly givers',
+    note: 'Steady money is what lets us commit to a repair before the storm instead of after it.',
+  },
+];
+
+// December target, straight from the notes file.
+const goal = '$15,000';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Riverside Commons Community Fund: Year-End Update</title>
+    <meta
+      name="description"
+      content="Forty families, one building on the north side of the river. Here is what your giving paid for this fall."
+    />
+  </head>
+
+  <body>
+    <!-- HERO: the headline and the one-line mission. -->
+    <header class="hero">
+      <div class="wrap">
+        <p class="eyebrow">Riverside Commons Community Fund</p>
+        <h1>Forty families. One building. A roof that finally gets fixed.</h1>
+        <p class="mission">
+          We keep forty families housed in a single affordable building on the north side of the river.
+        </p>
+        <a class="btn" href="#give">Give before December 31</a>
+      </div>
+    </header>
+
+    <main>
+      <!-- OUR IMPACT: the facts from the notes file, as stat cards. -->
+      <section class="section" id="impact">
+        <div class="wrap">
+          <h2>Our impact this fall</h2>
+          <p class="lede">
+            Every figure here comes straight from our finance export. We do not round them, because you
+            deserve to see the same number we see.
+          </p>
+
+          <ul class="cards">
+            {
+              stats.map((s) => (
+                <li class="card">
+                  <p class="figure">{s.figure}</p>
+                  <p class="label">{s.label}</p>
+                  <p class="note">{s.note}</p>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </section>
+
+      <!-- WHY GIVE: the short paragraph, with an image placeholder beside it. -->
+      <section class="section alt" id="why">
+        <div class="wrap split">
+          <!-- Placeholder only. No remote images are fetched by this page. -->
+          <div class="photo" role="img" aria-label="Placeholder for a photo of the courtyard"></div>
+          <div>
+            <h2>Why give</h2>
+            <p>
+              A hard month turns into an eviction faster than most people think. We pay for the repairs,
+              the utilities help, and the emergency rent support that stop that from happening, and we do
+              it in the week it is needed rather than the month after. Your gift is the reason we can say
+              yes that quickly. Our goal for December is {goal}, which finishes the roof corner and refills
+              the emergency fund.
+            </p>
+            <p>
+              Come see it for yourself. We do building walk-throughs on the second Saturday of every month,
+              and anyone can come.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- THE ASK. -->
+      <section class="section give" id="give">
+        <div class="wrap">
+          <h2>Help us finish the roof</h2>
+          <p class="lede">
+            Give once, or give monthly. Monthly is what lets us plan instead of react.
+          </p>
+          <a class="btn big" href="#">Donate now</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <p>Riverside Commons Community Fund · Walk-throughs the second Saturday of every month</p>
+        <p class="disclaimer">
+          Training exercise. Riverside Commons Community Fund is a fictional organization and every figure
+          on this page is invented for coursework. Please do not treat it as a real charity or send money.
+        </p>
+      </div>
+    </footer>
+
+    <style is:global>
+      /* Warm neutrals and a terracotta accent. No startup blues, no gradients. */
+      :root {
+        --cream: #fbf7f1;
+        --sand: #f3ebdf;
+        --ink: #2a2320;
+        --muted: #6b5f57;
+        --accent: #b4552f;
+        --accent-dark: #8f4023;
+        --line: #e3d7c7;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--cream);
+        color: var(--ink);
+        font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+        font-size: 18px;
+        line-height: 1.65;
+      }
+
+      .wrap {
+        max-width: 62rem;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
+      /* HERO */
+      .hero {
+        background: var(--sand);
+        border-bottom: 1px solid var(--line);
+        padding: 5.5rem 0 4.5rem;
+      }
+
+      .eyebrow {
+        margin: 0 0 1rem;
+        font-family: system-ui, sans-serif;
+        font-size: 0.8rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      h1 {
+        margin: 0 0 1rem;
+        font-size: clamp(2.2rem, 5.5vw, 3.4rem);
+        line-height: 1.12;
+        max-width: 20ch;
+      }
+
+      .mission {
+        margin: 0 0 2rem;
+        font-size: 1.2rem;
+        color: var(--muted);
+        max-width: 46ch;
+      }
+
+      /* Buttons */
+      .btn {
+        display: inline-block;
+        background: var(--accent);
+        color: var(--cream);
+        text-decoration: none;
+        padding: 0.85rem 1.6rem;
+        border-radius: 999px;
+        font-family: system-ui, sans-serif;
+        font-size: 1rem;
+        font-weight: 600;
+      }
+
+      .btn:hover {
+        background: var(--accent-dark);
+      }
+
+      .btn.big {
+        padding: 1.05rem 2.4rem;
+        font-size: 1.1rem;
+      }
+
+      /* Sections */
+      .section {
+        padding: 4.5rem 0;
+      }
+
+      .section.alt {
+        background: var(--sand);
+        border-block: 1px solid var(--line);
+      }
+
+      h2 {
+        margin: 0 0 0.75rem;
+        font-size: clamp(1.7rem, 3.5vw, 2.2rem);
+      }
+
+      .lede {
+        margin: 0 0 2.5rem;
+        color: var(--muted);
+        max-width: 58ch;
+      }
+
+      /* STAT CARDS: three across on desktop, stacking down to one on a phone. */
+      .cards {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem;
+      }
+
+      .card {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 1.6rem;
+      }
+
+      .figure {
+        margin: 0;
+        font-size: 1.9rem;
+        line-height: 1.1;
+        color: var(--accent);
+      }
+
+      .label {
+        margin: 0.35rem 0 0.75rem;
+        font-family: system-ui, sans-serif;
+        font-size: 0.85rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .note {
+        margin: 0;
+        font-size: 0.98rem;
+        color: var(--muted);
+      }
+
+      /* WHY GIVE */
+      .split {
+        display: grid;
+        grid-template-columns: 0.85fr 1fr;
+        gap: 2.5rem;
+        align-items: center;
+      }
+
+      .photo {
+        aspect-ratio: 4 / 3;
+        border-radius: 14px;
+        border: 1px dashed var(--line);
+        background: repeating-linear-gradient(
+          45deg,
+          #efe4d4,
+          #efe4d4 12px,
+          #e8dbc8 12px,
+          #e8dbc8 24px
+        );
+      }
+
+      /* THE ASK */
+      .give {
+        text-align: center;
+      }
+
+      .give .lede {
+        margin-inline: auto;
+      }
+
+      /* FOOTER */
+      footer {
+        border-top: 1px solid var(--line);
+        padding: 2.5rem 0 3.5rem;
+        font-family: system-ui, sans-serif;
+        font-size: 0.9rem;
+        color: var(--muted);
+      }
+
+      .disclaimer {
+        margin-top: 0.75rem;
+        font-size: 0.82rem;
+        max-width: 70ch;
+      }
+
+      /* Phones: stack everything. */
+      @media (max-width: 820px) {
+        .cards {
+          grid-template-columns: 1fr;
+        }
+
+        .split {
+          grid-template-columns: 1fr;
+        }
+
+        .hero {
+          padding: 3.5rem 0 3rem;
+        }
+      }
+    </style>
+  </body>
+</html>
